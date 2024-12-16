@@ -1,0 +1,54 @@
+<div class="container mt-5 container-default">
+  <app-header titulo="Información Basica"></app-header>
+  <div *ngIf="cliente; else noData">
+    <form>
+      <div class="form-group">
+        <label for="tipoDocumento">Tipo de Documento</label>
+        <input type="text" class="form-control" id="tipoDocumento" name="tipoDocumento" disabled
+          [value]="getTipoDocumentoName(cliente.tipoDocumento)">
+      </div>
+
+      <div class="form-group">
+        <label for="numeroDocumento">Número de Documento</label>
+        <input type="text" class="form-control" id="numeroDocumento" name="numeroDocumento" disabled required
+          [value]="cliente.numeroDocumento">
+      </div>
+      <div class="form-group">
+        <label for="apellidos">Apellidos</label>
+        <input type="text" class="form-control" id="apellidos" name="apellidos" disabled required
+          [value]="cliente.primerApellido+' '+cliente.segundoApellido">
+      </div>
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" disabled required
+          [value]="cliente.primerNombre+' '+cliente.segundoNombre">
+      </div>
+      <div class="form-group">
+        <label for="telefono">Teléfono</label>
+        <input type="text" class="form-control" id="telefono" name="telefono" disabled required
+          [value]="cliente.telefono">
+      </div>
+
+      <div class="form-group">
+        <label for="direccion">Dirección</label>
+        <input type="text" class="form-control" id="direccion" name="direccion" disabled required
+          [value]="cliente.direccion">
+      </div>
+      <div class="form-group">
+        <label for="ciudad">Ciudad</label>
+        <input type="text" class="form-control" id="numeroDocumento" name="ciudad" disabled required
+          [value]="cliente.ciudad">
+      </div>
+
+
+    </form>
+  </div>
+  <ng-template #noData>
+    <div class="alert alert-warning">No se encontró información para el cliente.</div>
+  </ng-template>
+  <div class="d-grid gap-2 col-6 mx-auto mt-2 pb-2" style="width: 25%">
+    <button type="button" class="btn btn-secondary btn-lg btn-default rounded-pill" (click)="volver()">
+      Volver
+    </button>
+  </div>
+</div>

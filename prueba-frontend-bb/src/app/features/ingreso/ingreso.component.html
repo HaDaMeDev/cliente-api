@@ -1,0 +1,43 @@
+<div class="container mt-5 container-default">
+  <app-header titulo="Consulta de Información Basica"></app-header>
+
+  <form>
+    <div class="form-group">
+      <label for="tipoDocumento">Tipo de Documento</label>
+      <select class="form-control" id="tipoDocumento" [(ngModel)]="tipoDocumento" name="tipoDocumento" required>
+        <option value="" disabled selected>Seleccione un tipo</option>
+        <option *ngFor="let type of documentTypes" [value]="type.code">{{ type.name }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="numeroDocumento">Número de Documento</label>
+      <input 
+        type="text" 
+        class="form-control" 
+        id="numeroDocumento" 
+        [(ngModel)]="numeroDocumento" 
+        name="numeroDocumento"
+        (input)="formatNumeroDocumento()"
+        required>
+    </div>
+
+    <div *ngIf="cleanNumeroDocumento().length > 0 && cleanNumeroDocumento().length < minLength" class="alert alert-warning mt-2" role="alert">
+      El número de documento debe tener al menos {{ minLength }} caracteres.
+    </div>
+
+    <div *ngIf="cleanNumeroDocumento().length > maxLength" class="alert alert-warning mt-2" role="alert">
+      El número de documento no debe superar los {{ maxLength }} caracteres.
+    </div>
+
+    <div class="d-grid gap-2 col-6 mx-auto mt-2 pb-2" style="width: 25%">
+      <button 
+        type="button" 
+        class="btn btn-primary btn-lg btn-default rounded-pill" 
+        (click)="buscar()"
+        [disabled]="!esFormularioValido()">
+        Buscar
+      </button>
+    </div>
+  </form>
+</div>

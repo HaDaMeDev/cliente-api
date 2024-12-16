@@ -1,0 +1,13 @@
+[
+    {
+        "tipoDocumento": "C",
+        "numeroDocumento": "23445322",
+        "primerNombre": "Juan",
+        "segundoNombre": "Carlos",
+        "primerApellido": "Perez",
+        "segundoApellido": "Lopez",
+        "telefono": "1234567890",
+        "direccion": "Calle 123 #45-67",
+        "ciudad": "Bogotá"
+    }
+]
