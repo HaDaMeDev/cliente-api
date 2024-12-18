@@ -21,7 +21,7 @@ export class IngresoComponent {
   numeroDocumento: string = '';
 
   // Límites de caracteres sin contar puntuaciones
-  minLength = 5;
+  minLength = 8;
   maxLength = 11;
 
   constructor(private router: Router) {}
